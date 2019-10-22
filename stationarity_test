@@ -1,0 +1,12 @@
+import statsmodels.tsa.stattools as tsa
+
+def check_for_stationarity(X, cutoff=0.01):
+    # H_0 in adfuller is unit root exits (non-stationary)
+    pvalue = adfuller(X)[1]
+    if pvalue > cuttoff:
+        print('pvalue = ' + str(pvalue) + ' The series ' + X.name + ' is likely stationary')
+        return True
+    else: 
+        print('pvalue = ' + str(pvalue) + ' The series ' + X.name + ' is likely non-stationary')
+        return False
+    
